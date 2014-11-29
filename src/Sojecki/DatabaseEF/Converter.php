@@ -4,7 +4,12 @@ namespace Sojecki\DatabaseEF\Database;
 
 class Converter
 {
-	function __construct($construct)
+	function __construct()
+	{
+		
+	}
+
+	function convert(Databse/Column $column)
 	{
 		
 	}

@@ -9,7 +9,7 @@ class Table
 	private $columns;
 	private $primaryKey;
 
-	public function __construct($database, $name)
+	public function __construct(Database &$database, $name)
 	{
 		$this->database = $database;
 		$this->name = $name;
@@ -28,9 +28,9 @@ class Table
 			foreach($this->getColumnsName() as $columnData)
 			{
 				$column = new Column($this, $columnData['Field'], $columnData['Type']);
-				$this->columns[] = $column;
+				$this->columns[] = &$column;
 				if($columnData['Key'] == 'PRI') {
-					$this->primaryKey = $column;
+					$this->primaryKey = &$column;
 				}
 			}
 		}

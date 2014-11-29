@@ -9,7 +9,7 @@ class Column
 	private $table;
 	private $isPrimaryKey;
 
-	public function __construct(Table $table, $name, $type, $isPrimaryKey = false)
+	public function __construct(Table &$table, $name, $type, $isPrimaryKey = false)
 	{
 		$this->table = $table;
 		$this->name = $name;

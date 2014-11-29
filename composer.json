@@ -1,0 +1,16 @@
+{
+    "name": "sojecki/databaseencodingfixer",
+    "description": "Command tool to fix broken database encoding",
+    "authors": [
+        {
+            "name": "Kamil Sojecki",
+            "email": "kamil@sojecki.pl"
+        }
+    ],
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

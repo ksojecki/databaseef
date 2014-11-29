@@ -13,7 +13,8 @@ class Sql
 	
 	public function command($command, $params = null)
 	{
-		
+		$query = $this->pdo->prepare($command);
+		$query->execute($params);
 	}
 
 	public function query($command, $params = null)

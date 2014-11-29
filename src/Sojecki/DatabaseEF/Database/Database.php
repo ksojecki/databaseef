@@ -37,7 +37,7 @@ class Database
 			return null;
 		}
 
-		new Table($this, $name);
+		return new Table($this, $name);
 	}
 
 	protected function getTableNames()

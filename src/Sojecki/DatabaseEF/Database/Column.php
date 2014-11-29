@@ -17,17 +17,17 @@ class Column
 		$this->isPrimary = $isPrimaryKey;
 	}
 
-	public function name()
+	public function getName()
 	{
 		return $this->name;
 	}
 
-	public function type()
+	public function getType()
 	{
 		return $this->type;
 	}
 
-	public function table()
+	public function getTable()
 	{
 		return $this->table;
 	}
@@ -35,5 +35,10 @@ class Column
 	public function isPrimaryKey()
 	{
 		return $this->isPrimaryKey;
+	}
+
+	public function isTextVariable()
+	{
+		return preg_match('/(text|varchar).*/', $this->type);
 	}
 }

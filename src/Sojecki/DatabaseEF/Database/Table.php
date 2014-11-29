@@ -7,6 +7,7 @@ class Table
 	public $name;
 	private $database;
 	private $columns;
+	private $primaryKey;
 
 	public function __construct($database, $name)
 	{
@@ -26,7 +27,11 @@ class Table
 
 			foreach($this->getColumnsName() as $columnData)
 			{
-				$this->columns[] = new Column($this, $columnData['Field'], $columnData['Type']);
+				$column = new Column($this, $columnData['Field'], $columnData['Type']);
+				$this->columns[] = $column;
+				if($columnData['Key'] == 'PRI') {
+					$this->primaryKey = $column;
+				}
 			}
 		}
 

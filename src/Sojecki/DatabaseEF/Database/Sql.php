@@ -23,4 +23,10 @@ class Sql
 		$query->execute($params);
 		return $query->fetchAll();
 	}
+
+	public function changeResultsEncoding($encoding)
+	{
+		$query = 'SET character_set_results = ' . $encoding;
+		$this->command($query);
+	}
 }

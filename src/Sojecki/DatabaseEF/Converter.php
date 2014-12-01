@@ -27,7 +27,17 @@ class Converter
 		$pkName = $column->getTable()->getPrimaryKey()->getName();
 
 		$result = $sql->query('SELECT ' . $pkName . ', ' . $column->getName() . ' FROM '. $column->getTable()->getName());
-		
+
 		$sql->changeResultsEncoding('utf8');
+
+		foreach ($result as $row) {
+			$sql->command(
+				'UPDATE ' . $column->getTable()->getName() . ' SET ' . $column->getName() . ' = :value WHERE '. $pkName .' = :pkValue', 
+				[
+					':value' => $row[$column->getName()], 
+					':pkValue' => $row[$pkName]
+				]
+			);
+		}
 	}
 }
